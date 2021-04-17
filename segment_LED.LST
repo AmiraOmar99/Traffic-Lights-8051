@@ -1,9 +1,9 @@
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     1
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.00d
 OBJECT MODULE PLACED IN segment_LED.OBJ
-ASSEMBLER INVOKED BY: C:\SiLabs\MCU\IDEfiles\C51\BIN\A51.EXE segment_LED.asm XR GEN DB EP NOMOD51
+ASSEMBLER INVOKED BY: C:\SiLabs\MCU\IDEfiles\C51\BIN\a51.exe segment_LED.asm XR GEN DB EP NOMOD51
 
 LOC  OBJ            LINE     SOURCE
 
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
   00A6          +1    53     sfr P2MDOUT  =  0xA6;   /* PORT 2 OUTPUT MODE CONFIGURATION                        */
   00A7          +1    54     sfr P3MDOUT  =  0xA7;   /* PORT 3 OUTPUT MODE CONFIGURATION                        */
   00A8          +1    55     sfr IE       =  0xA8;   /* INTERRUPT ENABLE                                        */
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     2
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     2
 
   00A9          +1    56     sfr SADDR0   =  0xA9;   /* SERIAL PORT 0 SLAVE ADDRESS                             */
   00AA          +1    57     sfr ADC1CN   =  0xAA;   /* ADC 1 CONTROL                                           */
@@ -133,7 +133,7 @@ LOC  OBJ            LINE     SOURCE
   00EC          +1   119     sfr PCA0CPL2 =   0xEC;   /* CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 2 - LOW BYTE  */
   00ED          +1   120     sfr PCA0CPL3 =   0xED;   /* CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 3 - LOW BYTE  */
   00EE          +1   121     sfr PCA0CPL4 =   0xEE;   /* CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 4 - LOW BYTE  */
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     3
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     3
 
   00EF          +1   122     sfr RSTSRC   =   0xEF;   /* RESET SOURCE                                            */
   00F0          +1   123     sfr B        =   0xF0;   /* B REGISTER                                              */
@@ -201,7 +201,7 @@ LOC  OBJ            LINE     SOURCE
   00B9          +1   177     sbit PT0   = IP ^ 1;                /* TIMER 0 PRIORITY                                 */
   00B8          +1   178     sbit PX0   = IP ^ 0;                /* EXTERNAL INTERRUPT 0 PRIORITY    */              
                 +1   179     
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     4
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     4
 
                 +1   180     
   00C7          +1   181     sbit BUSY     =   SMB0CN ^ 7;       /* SMBUS 0 BUSY                    */
@@ -269,7 +269,7 @@ LOC  OBJ            LINE     SOURCE
 0000 75FFDE          242     MOV WDTCN,#11011110B ;0DEH
 0003 75FFAD          243     MOV WDTCN,#10101101B ;0ADH
                      244     
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     5
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     5
 
                      245     ; config of clock
 0006 75B214          246     MOV OSCICN , #14H ; 2MH clock
@@ -337,7 +337,7 @@ LOC  OBJ            LINE     SOURCE
 003A 22              306                     RET
                      307                     
 003B C295            308     OFF:    CLR GREEN_LED
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     6
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     6
 
 003D D296            309                     SETB RED_LED
 003F 22              310                     RET
@@ -366,7 +366,7 @@ LOC  OBJ            LINE     SOURCE
                      331                                     
                      332     
                      333                             END
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     7
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     7
 
 XREF SYMBOL TABLE LISTING
 ---- ------ ----- -------
@@ -434,7 +434,7 @@ EMI0TC . . . . . .  D ADDR   00A1H   A      49#
 ENSMB. . . . . . .  B ADDR   00C0H.6 A      182#
 ES0. . . . . . . .  B ADDR   00A8H.4 A      166#
 ET0. . . . . . . .  B ADDR   00A8H.1 A      169#
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     8
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     8
 
 ET1. . . . . . . .  B ADDR   00A8H.3 A      167#
 ET2. . . . . . . .  B ADDR   00A8H.5 A      165#
@@ -502,7 +502,7 @@ PCA0L. . . . . . .  D ADDR   00E9H   A      116#
 PCA0MD . . . . . .  D ADDR   00D9H   A      101#
 PCON . . . . . . .  D ADDR   0087H   A      24#
 PRESET_MAX30 . . .  C ADDR   0005H   A      264# 301
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE     9
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE     9
 
 PS . . . . . . . .  B ADDR   00B8H.4 A      174#
 PSCTL. . . . . . .  D ADDR   008FH   A      32#
@@ -570,7 +570,7 @@ TH0. . . . . . . .  D ADDR   008CH   A      29#
 TH1. . . . . . . .  D ADDR   008DH   A      30#
 TH2. . . . . . . .  D ADDR   00CDH   A      90#
 TH4. . . . . . . .  D ADDR   00F5H   A      128#
-A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/15/2021 23:49:04 PAGE    10
+A51 MACRO ASSEMBLER  SEGMENT_LED                                                          04/17/2021 12:47:21 PAGE    10
 
 TI0. . . . . . . .  B ADDR   0098H.1 A      160#
 TL0. . . . . . . .  D ADDR   008AH   A      27#

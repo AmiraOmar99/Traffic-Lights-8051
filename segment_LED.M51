@@ -1,18 +1,18 @@
-BL51 BANKED LINKER/LOCATER V6.05              04/15/2021  23:49:04  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.05              04/17/2021  12:37:59  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
-C:\SILABS\MCU\IDEFILES\C51\BIN\BL51.EXE C:\Users\RS3\Desktop\Traffic-Lights-80
->> 51\segment_LED.obj TO C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED 
->> RS (256) PL (68) PW (78)
+C:\SILABS\MCU\IDEFILES\C51\BIN\BL51.EXE C:\Users\nkhal\Desktop\Traffic-Lights-
+>> 8051\segment_LED.obj TO C:\Users\nkhal\Desktop\Traffic-Lights-8051\segment_
+>> LED RS (256) PL (68) PW (78)
 
 
 INPUT MODULES INCLUDED:
-  C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED.obj (SEGMENT_LED)
+  C:\Users\nkhal\Desktop\Traffic-Lights-8051\segment_LED.obj (SEGMENT_LED)
 
 
-LINK MAP OF MODULE:  C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED (SEG
->> MENT_LED)
+LINK MAP OF MODULE:  C:\Users\nkhal\Desktop\Traffic-Lights-8051\segment_LED (S
+>> EGMENT_LED)
 
 
             TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
@@ -26,8 +26,8 @@ LINK MAP OF MODULE:  C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED (SEG
 
 
 
-SYMBOL TABLE OF MODULE:  C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED 
->> (SEGMENT_LED)
+SYMBOL TABLE OF MODULE:  C:\Users\nkhal\Desktop\Traffic-Lights-8051\segment_LE
+>> D (SEGMENT_LED)
 
   VALUE           TYPE          NAME
   ----------------------------------
@@ -67,7 +67,7 @@ SYMBOL TABLE OF MODULE:  C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED
   B:00D8H.4       SYMBOL        CCF4
   B:00D8H.7       SYMBOL        CF
   D:008EH         SYMBOL        CKCON
-BL51 BANKED LINKER/LOCATER V6.05            04/15/2021  23:49:04  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.05            04/17/2021  12:37:59  PAGE 2
 
 
   B:00C8H.0       SYMBOL        CPRL2
@@ -135,7 +135,7 @@ SYMBOL TABLE OF MODULE:  C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED
   D:00A6H         SYMBOL        P2MDOUT
   D:00B0H         SYMBOL        P3
   D:00ADH         SYMBOL        P3IF
-BL51 BANKED LINKER/LOCATER V6.05            04/15/2021  23:49:04  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.05            04/17/2021  12:37:59  PAGE 3
 
 
   D:00A7H         SYMBOL        P3MDOUT
@@ -203,7 +203,7 @@ SYMBOL TABLE OF MODULE:  C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED
   B:0098H.6       SYMBOL        SM10
   B:0098H.5       SYMBOL        SM20
   D:00C3H         SYMBOL        SMB0ADR
-BL51 BANKED LINKER/LOCATER V6.05            04/15/2021  23:49:04  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.05            04/17/2021  12:37:59  PAGE 4
 
 
   D:00C0H         SYMBOL        SMB0CN
@@ -271,7 +271,7 @@ SYMBOL TABLE OF MODULE:  C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED
   C:000DH         LINE#         34
   C:000EH         LINE#         35
   C:0010H         LINE#         38
-BL51 BANKED LINKER/LOCATER V6.05            04/15/2021  23:49:04  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.05            04/17/2021  12:37:59  PAGE 5
 
 
   C:0012H         LINE#         39

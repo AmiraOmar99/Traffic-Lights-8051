@@ -1,1 +1,1 @@
-"C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED.obj"  TO "C:\Users\RS3\Desktop\Traffic-Lights-8051\segment_LED"  RS(256) PL(68) PW(78)  
+"C:\Users\nkhal\Desktop\MC8051_Traffic_Light-master\Traffic-Light.obj"  TO "C:\Users\nkhal\Desktop\Traffic-Lights-8051\liii"  RS(256) PL(68) PW(78)  
