@@ -45,11 +45,11 @@ INIT:
 	MOVC A, @A+DPTR
 	MOV LEFT_7_SEGMENT, A
 
-JB SUBMIT,START ;start if submit
-JB S1,INC1;increment 1 if s1
-JB S2,INC2;increment2 if s2
 
-SJMP INIT ;if not any return to write to 7seg and read switches
+CHECK:	JB SUBMIT,START ;start if submit
+				JB S1,INC1;increment 1 if s1
+				JB S2,INC2;increment2 if s2
+				SJMP INIT ;if not any return to write to 7seg and read switches
 
 INC1:	CJNE R1, #09H, IN1 ; check if 9 reached return to zero
 			MOV R1,#00H
@@ -72,7 +72,7 @@ INC2:	CJNE R2,#09H,IN2 ; check if 9 reached return to 1 (minimum is 10)
 
 START:
 	MOV 60H,R1
-	MOV 50H,R2
+	MOV 70H,R2
 	JMP MAIN
 
 
@@ -98,7 +98,8 @@ DEC2:	CJNE R2,#00H,DC2
 	
 REST:	CALL TOG
       MOV R1,60H
-			MOV R2,50H
+			MOV R2,70H
+			JNB SUBMIT, CHECK
 			JMP START
 
 ON:	SETB GREEN_LED

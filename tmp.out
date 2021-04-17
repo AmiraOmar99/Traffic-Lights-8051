@@ -1,14 +1,5 @@
 
-BL51 BANKED LINKER/LOCATER V6.05 - SN: Eval Version
+A51 MACRO ASSEMBLER V8.00d - SN: Eval Version
 COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2007
-"C:\Users\san_m\OneDrive\Documents\Traffic-Lights-8051\max (1).obj"  TO "C:\Users\san_m\OneDrive\Documents\Traffic-Lights-8051\max (1)"  RS(256) PL(68) PW(78)  
 
-******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 009AH BYTE ( 7%) *
-******************************************************************************
-
->> 
->> 
->> 
-Program Size: data=8.0 xdata=0 code=279
-LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
