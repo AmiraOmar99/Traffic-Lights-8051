@@ -1,9 +1,9 @@
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     1
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.00d
-OBJECT MODULE PLACED IN max.OBJ
-ASSEMBLER INVOKED BY: C:\SiLabs\MCU\IDEfiles\C51\BIN\a51.exe max.asm XR GEN DB EP NOMOD51
+OBJECT MODULE PLACED IN max (1).OBJ
+ASSEMBLER INVOKED BY: C:\SiLabs\MCU\IDEfiles\C51\BIN\a51.exe max (1).asm XR GEN DB EP NOMOD51
 
 LOC  OBJ            LINE     SOURCE
 
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
   00A6          +1    53     sfr P2MDOUT  =  0xA6;   /* PORT 2 OUTPUT MODE CONFIGURATION                        */
   00A7          +1    54     sfr P3MDOUT  =  0xA7;   /* PORT 3 OUTPUT MODE CONFIGURATION                        */
   00A8          +1    55     sfr IE       =  0xA8;   /* INTERRUPT ENABLE                                        */
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     2
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     2
 
   00A9          +1    56     sfr SADDR0   =  0xA9;   /* SERIAL PORT 0 SLAVE ADDRESS                             */
   00AA          +1    57     sfr ADC1CN   =  0xAA;   /* ADC 1 CONTROL                                           */
@@ -133,7 +133,7 @@ LOC  OBJ            LINE     SOURCE
   00EC          +1   119     sfr PCA0CPL2 =   0xEC;   /* CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 2 - LOW BYTE  */
   00ED          +1   120     sfr PCA0CPL3 =   0xED;   /* CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 3 - LOW BYTE  */
   00EE          +1   121     sfr PCA0CPL4 =   0xEE;   /* CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 4 - LOW BYTE  */
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     3
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     3
 
   00EF          +1   122     sfr RSTSRC   =   0xEF;   /* RESET SOURCE                                            */
   00F0          +1   123     sfr B        =   0xF0;   /* B REGISTER                                              */
@@ -201,7 +201,7 @@ LOC  OBJ            LINE     SOURCE
   00B9          +1   177     sbit PT0   = IP ^ 1;                /* TIMER 0 PRIORITY                                 */
   00B8          +1   178     sbit PX0   = IP ^ 0;                /* EXTERNAL INTERRUPT 0 PRIORITY    */              
                 +1   179     
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     4
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     4
 
                 +1   180     
   00C7          +1   181     sbit BUSY     =   SMB0CN ^ 7;       /* SMBUS 0 BUSY                    */
@@ -269,7 +269,7 @@ LOC  OBJ            LINE     SOURCE
 0000 75FFDE          242     MOV WDTCN,#11011110B ;0DEH
 0003 75FFAD          243     MOV WDTCN,#10101101B ;0ADH
                      244     
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     5
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     5
 
                      245     ; config of clock
 0006 75B214          246     MOV OSCICN , #14H ; 2MH clock
@@ -295,7 +295,7 @@ LOC  OBJ            LINE     SOURCE
                      266                     
 0000                 267                     ORG 0                                   ;tells the compiler all subsequent 
                              code starting at address 0
-0000 1177            268                     CALL OFF
+0000 1167            268                     CALL OFF
                      269                     ;initially 30 on  7segments
 0002 7900            270                     MOV R1, #00H                   
 0004 7A03            271                     MOV R2, #03H                   
@@ -310,9 +310,9 @@ LOC  OBJ            LINE     SOURCE
 000E 93              280             MOVC A, @A+DPTR
 000F F5B0            281             MOV LEFT_7_SEGMENT, A
                      282     
-0011 308224          283     JNB SUBMIT,START ;start if submit
-0014 308005          284     JNB S1,INC1;increment 1 if s1
-0017 308110          285     JNB S2,INC2;increment2 if s2
+0011 208224          283     JB SUBMIT,START ;start if submit
+0014 208005          284     JB S1,INC1;increment 1 if s1
+0017 208110          285     JB S2,INC2;increment2 if s2
                      286     
 001A 80ED            287     SJMP INIT ;if not any return to write to 7seg and read switches
                      288     
@@ -337,90 +337,70 @@ LOC  OBJ            LINE     SOURCE
                      307     
 0038                 308     START:
 0038 8960            309             MOV 60H,R1
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     6
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     6
 
 003A 8A50            310             MOV 50H,R2
 003C 8000            311             JMP MAIN
                      312     
                      313     
-003E E9              314     MAIN:   MOV A, R1
-003F 601A            315                             JZ LCONT1
-0041 F8              316                             MOV R0, A
-0042 8000            317                             JMP LOOP3       
-                     318                             
-                     319                                     
-                     320                     
-0044 93              321     LOOP3:  MOVC A, @A+DPTR                 ; location in the look-up Table
-0045 F5A0            322                     MOV RIGHT_7_SEGMENT, A  ; write to the 7-segment
-0047 18              323                     DEC R0
-0048 E8              324                     MOV A, R0
-0049 310A            325                     ACALL DELAY
-                     326                     
-004B B800F6          327                     CJNE R0, #0H, LOOP3             ; check the number
-004E 1A              328                     DEC R2
-                     329     
-004F 93              330                     MOVC A, @A+DPTR
-0050 F5A0            331                     MOV RIGHT_7_SEGMENT, A
-0052 310A            332                     ACALL DELAY
-                     333                     
-0054 BA000E          334                     CJNE R2, #0, LCONT2
-0057 116B            335                     CALL REST
-0059 80E3            336                     JMP MAIN
-                     337     
-005B 1A              338     LCONT1: DEC R2
-005C EA              339                     MOV A, R2
-005D 93              340                     MOVC A, @A+DPTR
-005E F5B0            341                     MOV LEFT_7_SEGMENT, A
-0060 7409            342                     MOV A, #9
-0062 F8              343                     MOV R0, A
-0063 80DF            344                     JMP LOOP3       
-                     345     
-0065                 346     LCONT2: 
-0065 EA              347                     MOV A, R2
-0066 93              348                     MOVC A, @A+DPTR
-0067 F5B0            349                     MOV LEFT_7_SEGMENT, A
-0069 80D9            350                     JMP LOOP3
-                     351     
-006B 117C            352     REST:   CALL TOG
-006D A960            353           MOV R1,60H
-006F AA50            354                             MOV R2,50H
-0071 22              355                             RET
-                     356     
-0072 D295            357     ON:     SETB GREEN_LED
-0074 C296            358                     CLR RED_LED
-0076 22              359                     RET
-                     360                     
-0077 C295            361     OFF:    CLR GREEN_LED
-0079 D296            362                             SETB RED_LED
-007B 22              363                             RET
-                     364     
-007C B295            365     TOG:    CPL GREEN_LED
-007E B296            366                             CPL RED_LED
-0080 22              367                             RET
-                     368                             
-                     369     ;look up table for right seven segment common cathode
-0100                 370         ORG TABLE_SEG
-0100 3F065B4F        371         DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,7FH,6FH
+                     314     
+003E 310A            315     MAIN:   ACALL DELAY
+0040 E9              316                             MOV A, R1
+0041 93              317                             MOVC A, @A+DPTR
+0042 F5A0            318                             MOV P2, A
+0044 EA              319                             MOV A, R2 
+0045 93              320                             MOVC A, @A+DPTR
+0046 F5B0            321                             MOV P3, A
+                     322     
+0048 B90004          323     DEC1:   CJNE R1,#00H,DC1
+004B 7909            324                             MOV R1,#09H
+004D 8003            325                             SJMP DEC2
+004F 19              326                             DC1:DEC R1
+0050 80EC            327                             JMP MAIN
+                     328     
+0052 BA0002          329     DEC2:   CJNE R2,#00H,DC2
+0055 8003            330                             SJMP REST
+0057 1A              331                             DC2:DEC R2
+0058 80E4            332                             JMP MAIN
+                     333             
+005A 116C            334     REST:   CALL TOG
+005C A960            335           MOV R1,60H
+005E AA50            336                             MOV R2,50H
+0060 80D6            337                             JMP START
+                     338     
+0062 D295            339     ON:     SETB GREEN_LED
+0064 C296            340                     CLR RED_LED
+0066 22              341                     RET
+                     342                     
+0067 C295            343     OFF:    CLR GREEN_LED
+0069 D296            344                             SETB RED_LED
+006B 22              345                             RET
+                     346     
+006C B295            347     TOG:    CPL GREEN_LED
+006E B296            348                             CPL RED_LED
+0070 22              349                             RET
+                     350                             
+                     351     ;look up table for right seven segment common cathode
+0100                 352         ORG TABLE_SEG
+0100 3F065B4F        353         DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,7FH,6FH
 0104 666D7D07                
 0108 7F6F                    
-                     372     
-                     373     
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     7
-
-010A                 374     DELAY:                  
-010A 7C05            375                             MOV R4,#05H
-010C 7DFF            376                             MOV R5 ,#0FFH
-010E 7EFF            377                             MOV R6, #0FFH
-                     378                                     
-0110 DEFE            379                             LOOP2:    DJNZ R6, LOOP2
-0112 DDFC            380                                       DJNZ R5, LOOP2
-0114 DCFA            381                                       DJNZ R4, LOOP2
-0116 22              382           RET
-                     383                     
-                     384                                     
-                     385     
-                     386                             END
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     8
+                     354     
+                     355     
+010A                 356     DELAY:                  
+010A 7C05            357                             MOV R4,#05H
+010C 7DFF            358                             MOV R5 ,#0FFH
+010E 7EFF            359                             MOV R6, #0FFH
+                     360                                     
+0110 DEFE            361                             LOOP2:    DJNZ R6, LOOP2
+0112 DDFC            362                                       DJNZ R5, LOOP2
+0114 DCFA            363                                       DJNZ R4, LOOP2
+0116 22              364           RET
+                     365                     
+                     366                                     
+                     367     
+                     368                             END
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     7
 
 XREF SYMBOL TABLE LISTING
 ---- ------ ----- -------
@@ -474,7 +454,11 @@ DAC0L. . . . . . .  D ADDR   00D2H   A      94#
 DAC1CN . . . . . .  D ADDR   00D7H   A      99#
 DAC1H. . . . . . .  D ADDR   00D6H   A      98#
 DAC1L. . . . . . .  D ADDR   00D5H   A      97#
-DELAY. . . . . . .  C ADDR   010AH   A      291 295 301 305 325 332 374#
+DC1. . . . . . . .  C ADDR   004FH   A      323 326#
+DC2. . . . . . . .  C ADDR   0057H   A      329 331#
+DEC1 . . . . . . .  C ADDR   0048H   A      323#
+DEC2 . . . . . . .  C ADDR   0052H   A      325 329#
+DELAY. . . . . . .  C ADDR   010AH   A      291 295 301 305 315 356#
 DPH. . . . . . . .  D ADDR   0083H   A      20#
 DPL. . . . . . . .  D ADDR   0082H   A      19#
 EA . . . . . . . .  B ADDR   00A8H.7 A      164#
@@ -484,12 +468,12 @@ EIP1 . . . . . . .  D ADDR   00F6H   A      129#
 EIP2 . . . . . . .  D ADDR   00F7H   A      130#
 EMI0CF . . . . . .  D ADDR   00A3H   A      50#
 EMI0CN . . . . . .  D ADDR   00AFH   A      62#
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     8
+
 EMI0TC . . . . . .  D ADDR   00A1H   A      49#
 ENSMB. . . . . . .  B ADDR   00C0H.6 A      182#
 ES0. . . . . . . .  B ADDR   00A8H.4 A      166#
 ET0. . . . . . . .  B ADDR   00A8H.1 A      169#
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE     9
-
 ET1. . . . . . . .  B ADDR   00A8H.3 A      167#
 ET2. . . . . . . .  B ADDR   00A8H.5 A      165#
 EX0. . . . . . . .  B ADDR   00A8H.0 A      170#
@@ -500,7 +484,7 @@ F0 . . . . . . . .  B ADDR   00D0H.5 A      203#
 F1 . . . . . . . .  B ADDR   00D0H.1 A      207#
 FLACL. . . . . . .  D ADDR   00B7H   A      68#
 FLSCL. . . . . . .  D ADDR   00B6H   A      67#
-GREEN_LED. . . . .  B ADDR   0090H.5 A      260# 357 361 365
+GREEN_LED. . . . .  B ADDR   0090H.5 A      260# 339 343 347
 IE . . . . . . . .  D ADDR   00A8H   A      55# 164 165 166 167 168 169 170
 IE0. . . . . . . .  B ADDR   0088H.1 A      150#
 IE1. . . . . . . .  B ADDR   0088H.3 A      148#
@@ -512,16 +496,13 @@ INIT . . . . . . .  C ADDR   0009H   A      275# 287 292 296 302 306
 IP . . . . . . . .  D ADDR   00B8H   A      69# 173 174 175 176 177 178
 IT0. . . . . . . .  B ADDR   0088H.0 A      151#
 IT1. . . . . . . .  B ADDR   0088H.2 A      149#
-LCONT1 . . . . . .  C ADDR   005BH   A      315 338#
-LCONT2 . . . . . .  C ADDR   0065H   A      334 346#
-LEFT_7_SEGMENT . .  D ADDR   00B0H   A      261# 281 341 349
-LOOP2. . . . . . .  C ADDR   0110H   A      379# 379 380 381
-LOOP3. . . . . . .  C ADDR   0044H   A      317 321# 327 344 350
-MAIN . . . . . . .  C ADDR   003EH   A      311 314# 336
+LEFT_7_SEGMENT . .  D ADDR   00B0H   A      261# 281
+LOOP2. . . . . . .  C ADDR   0110H   A      361# 361 362 363
+MAIN . . . . . . .  C ADDR   003EH   A      311 315# 327 332
 MODF . . . . . . .  B ADDR   00F8H.5 A      232#
 MSTEN. . . . . . .  B ADDR   00F8H.1 A      236#
-OFF. . . . . . . .  C ADDR   0077H   A      268 361#
-ON . . . . . . . .  C ADDR   0072H   A      357#
+OFF. . . . . . . .  C ADDR   0067H   A      268 343#
+ON . . . . . . . .  C ADDR   0062H   A      339#
 OSCICN . . . . . .  D ADDR   00B2H   A      65# 246
 OSCXCN . . . . . .  D ADDR   00B1H   A      64#
 OV . . . . . . . .  B ADDR   00D0H.2 A      206#
@@ -531,9 +512,9 @@ P0MDOUT. . . . . .  D ADDR   00A4H   A      51#
 P1 . . . . . . . .  D ADDR   0090H   A      33# 259 260
 P1MDIN . . . . . .  D ADDR   00BDH   A      74#
 P1MDOUT. . . . . .  D ADDR   00A5H   A      52#
-P2 . . . . . . . .  D ADDR   00A0H   A      48# 262
+P2 . . . . . . . .  D ADDR   00A0H   A      48# 262 318
 P2MDOUT. . . . . .  D ADDR   00A6H   A      53#
-P3 . . . . . . . .  D ADDR   00B0H   A      63# 261
+P3 . . . . . . . .  D ADDR   00B0H   A      63# 261 321
 P3IF . . . . . . .  D ADDR   00ADH   A      60#
 P3MDOUT. . . . . .  D ADDR   00A7H   A      54#
 P4 . . . . . . . .  D ADDR   0084H   A      21#
@@ -555,9 +536,9 @@ PCA0CPL4 . . . . .  D ADDR   00EEH   A      121#
 PCA0CPM0 . . . . .  D ADDR   00DAH   A      102#
 PCA0CPM1 . . . . .  D ADDR   00DBH   A      103#
 PCA0CPM2 . . . . .  D ADDR   00DCH   A      104#
-PCA0CPM3 . . . . .  D ADDR   00DDH   A      105#
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE    10
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE     9
 
+PCA0CPM3 . . . . .  D ADDR   00DDH   A      105#
 PCA0CPM4 . . . . .  D ADDR   00DEH   A      106#
 PCA0H. . . . . . .  D ADDR   00F9H   A      132#
 PCA0L. . . . . . .  D ADDR   00E9H   A      116#
@@ -577,12 +558,12 @@ RCAP2L . . . . . .  D ADDR   00CAH   A      87#
 RCAP4H . . . . . .  D ADDR   00E5H   A      112#
 RCAP4L . . . . . .  D ADDR   00E4H   A      111#
 RCLK0. . . . . . .  B ADDR   00C8H.5 A      193#
-RED_LED. . . . . .  B ADDR   0090H.6 A      259# 358 362 366
+RED_LED. . . . . .  B ADDR   0090H.6 A      259# 340 344 348
 REF0CN . . . . . .  D ADDR   00D1H   A      93#
 REN0 . . . . . . .  B ADDR   0098H.4 A      157#
-REST . . . . . . .  C ADDR   006BH   A      335 352#
+REST . . . . . . .  C ADDR   005AH   A      330 334#
 RI0. . . . . . . .  B ADDR   0098H.0 A      161#
-RIGHT_7_SEGMENT. .  D ADDR   00A0H   A      262# 278 322 331
+RIGHT_7_SEGMENT. .  D ADDR   00A0H   A      262# 278
 RS0. . . . . . . .  B ADDR   00D0H.3 A      205#
 RS1. . . . . . . .  B ADDR   00D0H.4 A      204#
 RSTSRC . . . . . .  D ADDR   00EFH   A      122#
@@ -617,15 +598,15 @@ SPI0DAT. . . . . .  D ADDR   009BH   A      43#
 SPIEN. . . . . . .  B ADDR   00F8H.0 A      237#
 SPIF . . . . . . .  B ADDR   00F8H.7 A      230#
 STA. . . . . . . .  B ADDR   00C0H.5 A      183#
-START. . . . . . .  C ADDR   0038H   A      283 308#
+START. . . . . . .  C ADDR   0038H   A      283 308# 337
 STO. . . . . . . .  B ADDR   00C0H.4 A      184#
 SUBMIT . . . . . .  B ADDR   0080H.2 A      265# 283
 T2CON. . . . . . .  D ADDR   00C8H   A      85# 191 192 193 194 195 196 197 198
 T4CON. . . . . . .  D ADDR   00C9H   A      86#
-TABLE_SEG. . . . .  N NUMB   0100H   A      258# 272 370
-TB80 . . . . . . .  B ADDR   0098H.3 A      158#
-A51 MACRO ASSEMBLER  MAX                                                                  04/17/2021 18:13:14 PAGE    11
+TABLE_SEG. . . . .  N NUMB   0100H   A      258# 272 352
+A51 MACRO ASSEMBLER  MAX__1_                                                              04/17/2021 23:20:21 PAGE    10
 
+TB80 . . . . . . .  B ADDR   0098H.3 A      158#
 TCLK0. . . . . . .  B ADDR   00C8H.4 A      194#
 TCON . . . . . . .  D ADDR   0088H   A      25# 144 145 146 147 148 149 150 151
 TF0. . . . . . . .  B ADDR   0088H.5 A      146#
@@ -646,7 +627,7 @@ TMR3H. . . . . . .  D ADDR   0095H   A      38#
 TMR3L. . . . . . .  D ADDR   0094H   A      37#
 TMR3RLH. . . . . .  D ADDR   0093H   A      36#
 TMR3RLL. . . . . .  D ADDR   0092H   A      35#
-TOG. . . . . . . .  C ADDR   007CH   A      352 365#
+TOG. . . . . . . .  C ADDR   006CH   A      334 347#
 TR0. . . . . . . .  B ADDR   0088H.4 A      147#
 TR1. . . . . . . .  B ADDR   0088H.6 A      145#
 TR2. . . . . . . .  B ADDR   00C8H.2 A      196#

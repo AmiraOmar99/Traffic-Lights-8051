@@ -1,1 +1,1 @@
-"C:\Users\nkhal\Desktop\MC8051_Traffic_Light-master\Traffic-Light.obj"  TO "C:\Users\nkhal\Desktop\Traffic-Lights-8051\liii"  RS(256) PL(68) PW(78)  
+"C:\Users\san_m\OneDrive\Documents\Traffic-Lights-8051\max (1).obj"  TO "C:\Users\san_m\OneDrive\Documents\Traffic-Lights-8051\max (1)"  RS(256) PL(68) PW(78)  

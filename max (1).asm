@@ -45,9 +45,9 @@ INIT:
 	MOVC A, @A+DPTR
 	MOV LEFT_7_SEGMENT, A
 
-JNB SUBMIT,START ;start if submit
-JNB S1,INC1;increment 1 if s1
-JNB S2,INC2;increment2 if s2
+JB SUBMIT,START ;start if submit
+JB S1,INC1;increment 1 if s1
+JB S2,INC2;increment2 if s2
 
 SJMP INIT ;if not any return to write to 7seg and read switches
 
@@ -76,48 +76,30 @@ START:
 	JMP MAIN
 
 
-MAIN:	MOV A, R1
-			JZ LCONT1
-			MOV R0, A
-			JMP LOOP3	
-			
-				
-		
-LOOP3:	MOVC A, @A+DPTR			; location in the look-up Table
-		MOV RIGHT_7_SEGMENT, A	; write to the 7-segment
-		DEC R0
-		MOV A, R0
-		ACALL DELAY
-		
-		CJNE R0, #0H, LOOP3		; check the number
-		DEC R2
 
-		MOVC A, @A+DPTR
-		MOV RIGHT_7_SEGMENT, A
-		ACALL DELAY
-		
-		CJNE R2, #0, LCONT2
-		CALL REST
-		JMP MAIN
+MAIN:	ACALL DELAY
+			MOV A, R1
+			MOVC A, @A+DPTR
+			MOV P2, A
+			MOV A, R2 
+			MOVC A, @A+DPTR
+			MOV P3, A
 
-LCONT1:	DEC R2
-		MOV A, R2
-		MOVC A, @A+DPTR
-		MOV LEFT_7_SEGMENT, A
-		MOV A, #9
-		MOV R0, A
-		JMP LOOP3	
+DEC1:	CJNE R1,#00H,DC1
+			MOV R1,#09H
+			SJMP DEC2
+			DC1:DEC R1
+			JMP MAIN
 
-LCONT2: 
-		MOV A, R2
-		MOVC A, @A+DPTR
-		MOV LEFT_7_SEGMENT, A
-		JMP LOOP3
-
+DEC2:	CJNE R2,#00H,DC2
+			SJMP REST
+			DC2:DEC R2
+			JMP MAIN
+	
 REST:	CALL TOG
       MOV R1,60H
 			MOV R2,50H
-			RET
+			JMP START
 
 ON:	SETB GREEN_LED
 		CLR RED_LED
