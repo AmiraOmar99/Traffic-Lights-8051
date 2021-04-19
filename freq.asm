@@ -127,50 +127,49 @@ TOG:	CPL GREEN_LED
     DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,7FH,6FH
 
 
+
+;setting the register values for high frequency delay
 fastfreq:
         MOV R4,#03H
         MOV R5 ,#0FFH
         MOV R6, #0FFH
-			        
-			LOOP1:	  DJNZ R6, LOOP1
-			          DJNZ R5, LOOP1
-			          DJNZ R4, LOOP1
-AJMP CONT
+		ACALL LOOP
+		AJMP CONT
 		
 
-
+;setting the register values for medium frequency delay
 medfreq:
         MOV R4,#07H
         MOV R5 ,#0FFH
         MOV R6, #0FFH
-			        
-			LOOP2:	  DJNZ R6, LOOP2
-			          DJNZ R5, LOOP2
-			          DJNZ R4, LOOP2
-    ;AJMP LOOP2
-AJMP CONT
+		ACALL LOOP
+		AJMP CONT
 
+;setting the register values for slow frequency delay
 slowfreq:
         MOV R4,#011H
         MOV R5 ,#0FFH
         MOV R6, #0FFH
-			        
-			LOOP3:	  DJNZ R6, LOOP3
-			          DJNZ R5, LOOP3
-			          DJNZ R4, LOOP3
-AJMP CONT
+		ACALL LOOP
+		AJMP CONT
+
+;the delay loop			        
+LOOP:	DJNZ R6, LOOP
+        DJNZ R5, LOOP
+        DJNZ R4, LOOP
+		RET
 
 DELAY:
-    ;get values of switches to know which frequency 
-    JB P0.4, fastfreq
+    JB P0.4, fastfreq 
 
     JB P0.5, medfreq
 
     JB P0.6, slowfreq
 
-    ACALL medfreq
+    ACALL medfreq ;if no switch is closed, choose the medium frequency
 
     CONT:
         RET	
 				
 END
+				
