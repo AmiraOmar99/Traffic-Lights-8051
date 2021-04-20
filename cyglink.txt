@@ -1,1 +1,1 @@
-"C:\Users\nkhal\Desktop\Traffic-Lights-8051\max (1).obj"  TO "C:\USERS\NKHAL\DESKTOP\TRAFFIC-LIGHTS-8051\max"  RS(256) PL(68) PW(78)  
+"C:\Users\user\Desktop\Traffic-Lights-8051\finalkit.obj"  TO "C:\Users\user\Desktop\Traffic-Lights-8051\finalkit"  RS(256) PL(68) PW(78)  
